@@ -1,23 +1,25 @@
 <script>
 export default {
 	props: ['user'],
-	emits: ['user-info'],
 	data() {
 		return {}
 	},
 	methods: {
-		userInfo() {
-			this.$emit('user-info', this.user);
+	},
+	computed: {
+		infoURL() {
+			return `/user/${this.user.id}`;
 		}
 	}
 }
 </script>
 
 <template>
-	<tr @click="userInfo">
+	<tr>
 		<td>{{ user.id }}</td>
 		<td>{{ user.firstName }}</td>
 		<td>{{ user.lastName }}</td>
+		<router-link :to="infoURL">Info</router-link>
 	</tr>
 </template>
 
