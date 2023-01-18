@@ -6,16 +6,7 @@ export default {
 	data() {
 		return {
 			user: {
-				firstName: "",
-				lastName: "",
-				oib: "",
-				address: {
-					country: "",
-					city: "",
-					postalNumber: "",
-					street: "",
-					streetNumber: ""
-				}
+				address: {},
 			},
 		}
 	},

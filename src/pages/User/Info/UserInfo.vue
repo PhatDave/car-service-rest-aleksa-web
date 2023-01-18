@@ -5,7 +5,8 @@ export default {
 	components: {},
 	data() {
 		return {
-			user: {}
+			user: {},
+			loading: true,
 		}
 	},
 	methods: {},
@@ -14,22 +15,23 @@ export default {
 	beforeMount() {
 		API.getUser(this.$route.params.id).then(user => {
 			this.user = user;
+			this.loading = false;
 		});
 	},
 }
 </script>
 
 <template>
-	<div>
-		<div>{{ user.id }}</div>
-		<div>{{ user.firstName }}</div>
-		<div>{{ user.lastName }}</div>
-		<div>{{ user.oib }}</div>
-		<div>{{ user.address.country }}</div>
-		<div>{{ user.address.city }}</div>
-		<div>{{ user.address.postalNumber }}</div>
-		<div>{{ user.address.street }}</div>
-		<div>{{ user.address.streetNumber }}</div>
+	<div v-if="!loading">
+		<div>ID: {{ user.id }}</div>
+		<div>FirstName: {{ user.firstName }}</div>
+		<div>LastName: {{ user.lastName }}</div>
+		<div>OIB: {{ user.oib }}</div>
+		<div>Country: {{ user.address.country }}</div>
+		<div>City: {{ user.address.city }}</div>
+		<div>Postal Number:{{ user.address.postalNumber }}</div>
+		<div>Street: {{ user.address.street }}</div>
+		<div>Street Number: {{ user.address.streetNumber }}</div>
 	</div>
 </template>
 
