@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-	AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	BBBBBBBBBBBBBBBBBBBBBBB
 </template>
 
 <style scoped>
