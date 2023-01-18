@@ -37,4 +37,21 @@ export default {
 			}
 		});
 	},
+	postUser(user) {
+		return new Promise((resolve, reject) => {
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", BASE_URL + "/user/add");
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.setRequestHeader("Accept", "application/json");
+			xhr.send(JSON.stringify(user));
+			xhr.onload = function() {
+				if (this.status === 201) {
+					resolve(this.responseText);
+				} else {
+					reject(this.responseText);
+				}
+			}
+		});
+
+	}
 }

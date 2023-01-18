@@ -18,6 +18,10 @@ const routes = [
 		component: UserAdd
 	},
 	{
+		path: '/user/edit/:id(\\d+)',
+		component: UserAdd
+	},
+	{
 		path: '/user/:id(\\d+)',
 		component: UserInfo
 	}
